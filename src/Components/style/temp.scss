@@ -1,0 +1,63 @@
+.block {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    flex-basis: 1024px;
+    height: 650px;
+    .tips {
+        flex: 1;
+        color: #8e8e8e;
+        font-size: 24px;
+        font-weight: bold;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .time {
+        flex: 1;
+        font-size: 48px;
+        animation: breathe 6s linear infinite;
+    }
+    .today {
+        position: fixed;
+        bottom: 20px;
+        right: 10px;
+        color: #7b7e7f;
+    }
+}
+@media screen and (max-width: 600px) { /*当屏幕尺寸小于600px时，应用下面的CSS样式*/
+    .block {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        flex-basis: 1024px;
+        height: 650px;
+        .tips {
+            flex: 1;
+            color: #8e8e8e;
+            font-size: 20px;
+            font-weight: bold;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .time {
+            flex: 1;
+            font-size: 40px;
+            animation: breathe 6s linear infinite;
+        }
+        .today {
+            position: fixed;
+            bottom: 20px;
+            right: 10px;
+            color: #7b7e7f;
+        }
+    }
+  }
+@keyframes breathe {
+    0% {color: #3b3b3b}
+    50% {color: #fff}
+    100% {color: #3b3b3b}
+}
