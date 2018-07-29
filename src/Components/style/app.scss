@@ -5,3 +5,8 @@
     background: url(../../images/bg_pc.png) center no-repeat;
     background-size: 100%;
 }
+
+@media screen and (max-width: 600px) { /*当屏幕尺寸小于600px时，应用下面的CSS样式*/
+    background: url(../../images/bg_mobile.png) center no-repeat;
+    background-size: 100%;
+}
