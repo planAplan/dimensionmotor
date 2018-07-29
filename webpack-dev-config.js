@@ -4,12 +4,12 @@ const path = require('path');
 var htmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
     entry: {
-        index: path.join(__dirname, './src/index.js'),
-        index: path.join(__dirname, './index.html')
+        main: path.join(__dirname, './src/index.js'),
+        // index: path.join(__dirname, './index.html')
     },
     output: {
         path: path.join(__dirname, './dist'),
-        filename: 'src/[name]-[hash].js'
+        filename: 'src/main-[hash].js'
     },
     module: {
         rules: [{
@@ -26,12 +26,12 @@ module.exports = {
             },
             {
                 test: /\.(gif|jpg|png|woff|svg|eot|ttf)\??.*$/,
-                loaders: ['url-loader?limit=8192&name=images/[hash:8].[name].[ext]']
+                loaders: ['url-loader?limit=8192&name=src/images/[hash:8].[name].[ext]']
             },
-            {
-                test: /\.png$/,
-                loaders: ["file-loader?name=images/[hash:8].[name].[ext]"]
-            },
+            // {
+            //     test: /\.png$/,
+            //     loaders: ["file-loader?name=src/images/[hash:8].[name].[ext]"]
+            // },
             {
     　　　　　　test: /\.html$/,
     　　　　　　loaders: ['html-withimg-loader']

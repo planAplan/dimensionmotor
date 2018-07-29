@@ -3,7 +3,7 @@ import React, {Component} from 'react';
 export default class Temp extends Component {
     constructor(props) {
         super(props)
-        this.END = new Date(2018, (8 - 1), 20).getTime()
+        this.END = new Date(2018, (9 - 1), 1).getTime()
         this.state = {
             dateStr: this.getcurTime()
         }
@@ -50,7 +50,14 @@ export default class Temp extends Component {
         let dateStr = this.state.dateStr
         return (
             <div className="block">
-                <div className="tips">此处应有官网，但是我们需要点时间...</div>
+                <div className="tips">
+                    <div className="tips1">深圳市维度机电有公司</div>
+                    <div className="tips2">网站升级维护中...</div>
+                </div>
+                <div className="foot-tips">
+                    <div className="tips3">T: +86-755-23061319 E: info@dmotec.com</div>
+                    <div className="tips4">Copyright &copy;2018 by DOM Technology co.,Ltd. all rights reserved</div>
+                </div>
                 <div className="time">{dateStr}</div>
                 <div className="today">{this.getToday()}</div>
             </div>
