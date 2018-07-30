@@ -51,7 +51,7 @@ export default class Temp extends Component {
         return (
             <div className="block">
                 <div className="tips">
-                    <div className="tips1">深圳市维度机电有公司</div>
+                    <div className="tips1">深圳市维度机电有限公司</div>
                     <div className="tips2">网站升级维护中...</div>
                 </div>
                 <div className="foot-tips">
