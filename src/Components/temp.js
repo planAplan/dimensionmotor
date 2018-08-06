@@ -56,7 +56,7 @@ export default class Temp extends Component {
                 </div>
                 <div className="foot-tips">
                     <div className="tips3">T: +86-755-23061319 E: info@dmotec.com</div>
-                    <div className="tips4">Copyright &copy;2018 by DOM Technology co.,Ltd. all rights reserved</div>
+                    <div className="tips4">Copyright &copy;2018 by DMO Technology co.,Ltd. all rights reserved</div>
                 </div>
                 <div className="time">{dateStr}</div>
                 <div className="today">{this.getToday()}</div>
