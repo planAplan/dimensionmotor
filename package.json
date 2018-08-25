@@ -8,7 +8,7 @@
   "scripts": {
     "dev": "./node_modules/.bin/webpack --config webpack-dev-config.js --color --progress",
     "dev:mac": "npm run clean && npm run dev",
-    "dev:win": "npm run clrwin && npm run dev",
+    "dev:win": "npm run clrwin & npm run dev",
     "clean": "rm -rf ./dist",
     "clrwin": "rmdir /s/q dist"
   },
