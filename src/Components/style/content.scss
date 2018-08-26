@@ -1,0 +1,38 @@
+.content-wrap {
+    width: 100%;
+    .content {
+        width: 100%;
+        height: 527px;
+        background: #fff url(../images/bg_pc_big.png) no-repeat center;
+        background-size: 100% 100%;
+    }
+    .children {
+        width: 100%;
+        height: 206px;
+        display: flex;
+        cursor: pointer;
+        .child {
+            &-1{
+                flex: 1;
+                background: #49cad7;
+                transition: all .4s linear;
+                &:hover {
+                    flex: 2;
+                }
+            }
+            &-2{
+                flex: 1;
+                background: #4e87e6;
+                transition: all .4s linear;
+                &:hover {
+                    flex: 2;
+                }
+            }
+            &-3{
+                flex: 2;
+                background: #ebeae6;
+                transition: all .4s linear;
+            }
+        }
+    }
+}

@@ -6,7 +6,7 @@
   "author": "cozhangyu <245636840@qq.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "./node_modules/.bin/webpack --config webpack-dev-config.js --color --progress",
+    "dev": "./node_modules/.bin/webpack --config webpack-dev-config.js --color --progress --watch",
     "dev:mac": "npm run clean && npm run dev",
     "dev:win": "npm run clrwin & npm run dev",
     "clean": "rm -rf ./dist",
@@ -32,6 +32,7 @@
   },
   "dependencies": {
     "react": "^16.4.1",
-    "react-dom": "^16.4.1"
+    "react-dom": "^16.4.1",
+    "react-intl": "^2.4.0"
   }
 }

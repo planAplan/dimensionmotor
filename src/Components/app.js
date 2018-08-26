@@ -1,7 +1,9 @@
 import React, {Component} from 'react';
-import Temp from './temp';
-
-require('./style/app.scss')
+// import Temp from './temp';
+import Banner from './banner';
+import Navbar from './nav';
+import Content from './content';
+import Footer from './footer';
 
 export default class App extends Component {
     constructor(props) {
@@ -9,6 +11,13 @@ export default class App extends Component {
     }
 
     render () {
-        return <Temp />
+        return (
+            <div className="wrap">
+                <Banner />
+                <Navbar />
+                <Content />
+                <Footer />
+            </div>
+        )
     }
 }

@@ -1,0 +1,23 @@
+.footer {
+    height: 181px;
+    background: #f4f4f1;
+    padding: 30px 30px 0 30px;
+    margin-top: 6px;
+    &_menu {
+        display: flex;
+        dl {
+            flex: 1;
+            margin-right: 30px;
+            dt {
+                font-size: 13px;
+                color: #666;
+                font-weight: 600;
+            }
+            a {
+                color: #333;
+                cursor: pointer;
+                outline: none;
+            }
+        }
+    }
+}
