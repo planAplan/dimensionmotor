@@ -37,16 +37,15 @@ export default class Navbar extends Component {
         this.state = {
           navTop: false,
           collapse: false,
+          searchPanel: false
         }
   
-        this.$tab = null;
         this.offsetTop = 0;
     }
   
     componentDidMount(){
-      this.$tab = this.navNode;
-      if(this.$tab){
-        this.offsetTop = this.$tab.offsetTop;
+      if(this.navNode){
+        this.offsetTop = this.navNode.offsetTop;
         window.addEventListener('scroll',this.handleScroll);
       }
     }
@@ -68,7 +67,6 @@ export default class Navbar extends Component {
       }
 
     itemFocus = (e) => {
-        console.log(BANNER_ITEM[e])
         this.setState({
             collapse: BANNER_ITEM[e]
         })
@@ -78,8 +76,19 @@ export default class Navbar extends Component {
             collapse: false
         })
     }
+    handleSearch = () => {
+        this.setState({
+            searchPanel: true
+        })
+    }
+    handleSearchBlur = () => {
+        this.setState({
+            searchPanel: false
+        })
+    }
     render () {
-        let {navTop, collapse} = this.state
+        let {navTop, collapse, searchPanel} = this.state;
+        let lang = window.languageWithoutRegionCode || 'en'
         return (
             <div ref={node => this.navNode = node} className={`nav${navTop ? ' fixed' : ''}`}>
                 {
@@ -89,18 +98,28 @@ export default class Navbar extends Component {
                     {
                         BANNER_ITEM.map((item, id) => {
                             return (
-                                <li key={id} onMouseEnter={this.itemFocus.bind(this, id)} onMouseLeave={this.itemBlur} onClick={this.itemFocus}>{item.title}</li>
+                                <li key={id} className="nav-item" onMouseEnter={this.itemFocus.bind(this, id)} onMouseLeave={this.itemBlur} onClick={this.itemFocus}>{item.title}</li>
                             )
                         })
                     }
+                    <li><div className="language">{lang === 'zh' ? 'ZH' : 'EN'}</div></li>
+                    <li>
+                        <i class="icon-search" onMouseEnter={this.handleSearch} onMouseLeave={this.handleSearchBlur}></i>
+                        {
+                            searchPanel ?
+                            <ul className="search" onMouseEnter={this.handleSearch} onMouseLeave={this.handleSearchBlur}>
+                                {/* <li><FM id="search"/></li> */}
+                                <li>
+                                    <input placeholder={lang === 'zh' ? '输入您的搜索词汇' : 'Enter your search term'} />
+                                    <button type="submit">
+                                        <i class="icon-search"></i>
+                                    </button>
+                                </li>
+                            </ul>
+                            : null
+                        }
+                    </li>
                 </ul>
-                {
-                    navTop ? 
-                    <ul className="sticky-nav">
-                        <li><div className="language">EN</div></li>
-                        <li><div className="all">ALL</div></li>
-                    </ul> : null
-                }
                 {
                     collapse ? <Collapse content={collapse} onMouseEnter={this.itemFocus.bind(this, collapse.key)} onMouseLeave={this.itemBlur}/> : null
                 }

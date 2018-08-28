@@ -1,14 +1,20 @@
 .content-wrap {
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     .content {
+        flex: 1;
         width: 100%;
         height: 527px;
         background: #fff url(../images/bg_pc_big.png) no-repeat center;
         background-size: 100% 100%;
     }
     .children {
-        width: 100%;
+        width: 1200px;
         height: 206px;
+        flex: 1;
         display: flex;
         cursor: pointer;
         .child {

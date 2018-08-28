@@ -1,56 +1,14 @@
 .header {
+    width: 1200px;
     height: 87px;
     display: flex;
+    justify-content: center;
+    align-items: center;
     flex: 1;
     background-color: #fff;
-    >div {
-        flex: 1;
-    }
     .logo {
-        // background: #fff url(../timages/logo.jpg) no-repeat 20px center
-    }
-    .search {
-        display: flex;
-        flex: 3;
-        justify-content: flex-end;
-        align-items: center;
-        input {
-            height: 28px;
-            padding: 5px 10px;
-            font-size: 1rem;
-            line-height: 1.25;
-            color: gray;
-            background-color: #fff;
-            background-image: none;
-            background-clip: padding-box;
-            border: 1px solid rgba(0,0,0,.15);
-            border-right: none;
-            margin-right: -.2rem;
-            transition: border-color .4s ease;
-        }
-        button {
-            white-space: nowrap;
-            background-color: #008CD6;
-            border: none;
-            height: 40px;
-            border: 1px solid rgba(0, 0, 0, 0.15);
-            padding: 5px 10px;
-            text-transform: uppercase;
-            font-weight: 400;
-            color: #fff;
-            vertical-align: top;
-            cursor: pointer;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            .icon-search {
-                display: inline-block;
-                width: 20px;
-                height: 20px;
-                background: url(../images/index_hsch.png) no-repeat center;
-                background-size: 90%;
-            }
-        }
+        flex: 1.5;
+        height: 100%;
     }
     .shop {
         flex: 1;

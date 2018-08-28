@@ -1,11 +1,14 @@
 .nav {
+    flex: 1;
     height: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #008CD6;
-    color: #e6e6e6;
+    background-color: #fff;
+    color: #333;
+    font-size: 14px;
     position: relative;
+    transition: all .4s linear;
     &.fixed {
         position: fixed;
         width: 100%;
@@ -17,27 +20,7 @@
         .logo {
             flex: .5;
             height: 100%;
-            background-color: #008CD6;
-        }
-        .sticky-nav {
-            flex: .3;
-            display: flex;
-            height: 100%;
-            li {
-                flex: 1;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                height: 100%;
-                cursor: pointer;
-                >div {
-                    height: 100%;
-                    flex: 1;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                }
-            }
+            background-color: #fff;
         }
     }
     .navbar-nav {
@@ -50,14 +33,75 @@
             height: 100%;
             flex: 1;
             display: flex;
-            font-size: 18px;
             align-items: center;
             justify-content: center;
             transition: all .4s ease-out;
             cursor: pointer;
-            &:hover {
-                background-color: #007bbd;
+            position: relative;
+            &.nav-item:hover {
+                background-color: #f5f5f5;
+                color: #007bbd;
+            }
+            .icon-search {
+                width: 20px;
+                height: 20px;
+                background: url(../images/index_hsch.png) no-repeat center;
+                background-size: 90%;
+            }
+        }
+        .search {
+            // width: 440px;
+            display: flex;
+            justify-content: flex-start;
+            align-items: flex-start;
+            flex-direction: column;
+            position: absolute;
+            top: 35px;
+            right: 0;
+            background: #fff;
+            padding: 20px;
+            box-shadow: 2px 2px #aaa;
+            >li {
+                display: flex;
+                margin-bottom: 15px;
+                text-indent: .5em;
+            }
+            input {
+                height: 28px;
+                padding: 5px 10px;
+                font-size: 1rem;
+                line-height: 1.25;
+                color: gray;
+                background-color: #fff;
+                background-image: none;
+                background-clip: padding-box;
+                border: 1px solid rgba(0,0,0,.15);
+                border-right: none;
+                margin-right: -.2rem;
+                transition: border-color .4s ease;
+            }
+            button {
+                white-space: nowrap;
+                background-color: #f0f0f0;
+                border: none;
+                height: 40px;
+                border: 1px solid rgba(0, 0, 0, 0.15);
+                padding: 5px 10px;
+                text-transform: uppercase;
+                font-weight: 400;
                 color: #fff;
+                vertical-align: top;
+                cursor: pointer;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                .icon-search {
+                    display: inline-block;
+                    width: 20px;
+                    height: 20px;
+                    background: url(../images/index_hsch.png) no-repeat center;
+                    background-size: 90%;
+                }
             }
         }
     }
@@ -69,23 +113,23 @@
     left: 0;
     width: 100%;
     height: 200px;
-    background-color: #007bbd;
-    color: #000;
+    background-color: #f5f5f5;
+    color: #333;
     &-1 {
-        width: calc(100% - 240px);
-        left: 240px;
+        width: calc(100% - 69px);
+        left: 69px;
     }
     &-2 {
-        width: calc(100% - 480px);
-        left: 480px;
+        width: calc(100% - 137px);
+        left: 137px;
     }
     &-3 {
-        width: calc(100% - 720px);
-        left: 720px;
+        width: calc(100% - 206px);
+        left: 206px;
     }
     &-4 {
-        width: calc(100% - 960px);
-        left: 960px;
+        width: calc(100% - 274px);
+        left: 274px;
     }
 }
 .nav.fixed {
@@ -94,8 +138,8 @@
         top: 50px;
         width: 100%;
         height: 200px;
-        background-color: #007bbd;
-        color: #000;
+        background-color: #f5f5f5;
+        color: #333;
         &-0, &-1, &-2, &-3, &-4 {
             left: 0;
         }
