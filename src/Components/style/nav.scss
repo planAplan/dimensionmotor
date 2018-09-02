@@ -1,12 +1,12 @@
 .nav {
-    flex: 1;
+    flex: 2;
     height: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
     background-color: #fff;
     color: #333;
-    font-size: 14px;
+    font-size: 18px;
     position: relative;
     transition: all .4s linear;
     &.fixed {
@@ -21,6 +21,11 @@
             flex: .5;
             height: 100%;
             background-color: #fff;
+            >span {
+                height: 100%;
+                width: 140px;
+                margin-left: 20px;
+            }
         }
     }
     .navbar-nav {
@@ -39,8 +44,8 @@
             cursor: pointer;
             position: relative;
             &.nav-item:hover {
-                background-color: #f5f5f5;
-                color: #007bbd;
+                background-color: #282e34;
+                color: #e6e6e6;
             }
             .icon-search {
                 width: 20px;
@@ -111,36 +116,100 @@
     position: absolute;
     top: 50px;
     left: 0;
-    width: 100%;
-    height: 200px;
-    background-color: #f5f5f5;
-    color: #333;
+    // width: 100%;
+    // height: 200px;
+    background-color: #282e34;
+    color: #e6e6e6;
+    font-size: 15px;
     &-1 {
-        width: calc(100% - 69px);
-        left: 69px;
+        // width: calc(100% - 100px);
+        left: 100px;
     }
     &-2 {
-        width: calc(100% - 137px);
-        left: 137px;
+        // width: calc(100% - 200px);
+        left: 200px;
     }
     &-3 {
-        width: calc(100% - 206px);
-        left: 206px;
+        // width: calc(100% - 300px);
+        left: 300px;
     }
     &-4 {
-        width: calc(100% - 274px);
-        left: 274px;
+        // width: calc(100% - 400px);
+        left: 400px;
+    }
+    &-5 {
+        // width: calc(100% - 500px);
+        left: 500px;
+    }
+    .nav-div {
+        .nav-ul {
+            >li {
+                padding: 10px;
+                cursor: pointer;
+                >a {
+                    position: relative;
+                    margin-left: 15px;
+                    >span {
+                        position: absolute;
+                        left: -18px;
+                        transition: all .4s linear
+                    }
+                }
+                &:hover {
+                    >a {
+                        background-color: #49545e;
+                        span {
+                            left: -12px;
+                        }
+                    }
+                }
+                .nav-box {
+                    margin-left: 15px;
+                    display: flex;
+                    flex-direction: column;
+                    >a {
+                        position: relative;
+                        margin-left: 15px;
+                        cursor: pointer;
+                        >span {
+                            position: absolute;
+                            left: -18px;
+                            transition: all .4s linear
+                        }
+                        &:hover {
+                            background-color: #49545e;
+                            span {
+                                left: -12px;
+                            }
+                        }
+                    }
+                }
+            }
+            &.float {
+                >li {
+                    float: left;
+                    width: 130px;
+                    &:nth-child(3) {
+                        height: 250px;
+                    }
+                }
+            }
+        }
+    }
+    a {
+        color: #e6e6e6;
     }
 }
 .nav.fixed {
     .collapse {
         position: absolute;
         top: 50px;
+        background-color: rgba(40, 46, 52, .6);;
+        color: #e6e6e6;
+
         width: 100%;
-        height: 200px;
-        background-color: #f5f5f5;
-        color: #333;
-        &-0, &-1, &-2, &-3, &-4 {
+        padding: 0 10%;
+        &-0, &-1, &-2, &-3, &-4, &-5 {
             left: 0;
         }
     }

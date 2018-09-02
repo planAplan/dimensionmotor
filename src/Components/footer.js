@@ -15,25 +15,32 @@ export default class Footer extends Component {
                     </div>
                     <div className="footer_menu">
                         <dl>
-                            <dt>公司</dt> <dd><a href="">公司概况</a></dd> <dd><a href="">经营理念</a></dd> <dd><a href="">发展历程</a></dd> <dd><a href="">公司荣誉</a></dd> <dd><a href="">新闻中心</a></dd>
+                            <dt>关于我们</dt>
+                            <dd><a href="javascript:;">公司简介</a></dd>
+                            <dd><a href="javascript:;">企业文化</a></dd>
+                            <dd><a href="javascript:;">加入维度</a></dd>
                         </dl>
                         <dl>
-                            <dt>解决方案</dt> <dd><a href="">核心技术</a></dd> <dd><a href="">解决方案</a></dd>
+                            <dt>产品中心</dt>
+                            <dd><a href="javascript:;">有框架力矩电机</a></dd>
+                            <dd><a href="javascript:;">无框架力矩电机</a></dd>
+                            <dd><a href="javascript:;">无铁芯直线电机</a></dd>
+                            <dd><a href="javascript:;">有铁芯直线电机</a></dd>
+                            <dd><a href="javascript:;">直线电机模组</a></dd>
+                            <dd><a href="javascript:;">对位平台</a></dd>
+                            <dd><a href="javascript:;">音圈电机</a></dd>
+                            <dd><a href="javascript:;">伺服驱动</a></dd>
                         </dl>
                         <dl>
-                            <dt>产品</dt> <dd><a href="">智能控制器</a></dd> <dd><a href="">锂电池</a></dd> <dd><a href="">高效电机</a></dd>
+                            <dt>应用中心</dt>
                         </dl>
                         <dl>
-                            <dt>能力</dt> <dd><a href="">研发实力</a></dd> <dd><a href="">生产能力</a></dd> <dd><a href="">品质认证</a></dd> <dd><a href="">供应链</a></dd>
+                            <dt>客户服务</dt>
+                            <dd><a href="javascript:;">资料下载</a></dd>
+                            <dd><a href="javascript:;">知识库</a></dd>
                         </dl>
                         <dl>
-                            <dt>投资者关系</dt>
-                        </dl>
-                        <dl>
-                            <dt>职业发展</dt> <dd><a href="">社会招聘</a></dd> <dd><a href="">工作环境</a></dd> <dd><a href="">薪资福利</a></dd>
-                        </dl>
-                        <dl>
-                            <dt>联系我们</dt> <dd><a href="">深圳总部</a></dd> <dd><a href="">惠州/杭州/重庆</a></dd> <dd><a href="">海外办事处</a></dd>
+                            <dt>联系我们</dt>
                         </dl>
                     </div>
                 </div>

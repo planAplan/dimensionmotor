@@ -5,27 +5,124 @@ const BANNER_ITEM = [
     {
         key: 0,
         title: <FM id='home'/>,
-        content: <div>0</div>
+        content: false
     },
     {
         key: 1,
         title: <FM id='company'/>,
-        content: <div>1</div>
+        content:
+         <div className="nav-div">
+            <ul className="nav-ul">
+                <li>
+                    <a href="javascript:;"><span>&gt;</span>公司简介</a>
+                </li>
+                <li>
+                    <a href="javascript:;"><span>&gt;</span>企业文化</a>
+                </li>
+                <li>
+                    <a href="javascript:;"><span>&gt;</span>加入维度</a>
+                </li>
+            </ul>
+
+        </div>
     },
     {
         key: 2,
         title: <FM id='product'/>,
-        content: <div>2</div>
+        content: 
+        <div className="nav-div">
+            <ul className="nav-ul float">
+                <li>
+                    <a href="javascript:;"><span>&gt;</span>有框架力矩电机</a>
+                    <div className="nav-box">
+                        <a hred="javascript:;"><span>&gt;</span>TFO080</a>
+                        <a hred="javascript:;"><span>&gt;</span>TFI112</a>
+                        <a hred="javascript:;"><span>&gt;</span>TFO140</a>
+                        <a hred="javascript:;"><span>&gt;</span>TFO170</a>
+                        <a hred="javascript:;"><span>&gt;</span>TFO220</a>
+                        <a hred="javascript:;"><span>&gt;</span>TFO224</a>
+                        <a hred="javascript:;"><span>&gt;</span>TFO260</a>
+                        <a hred="javascript:;"><span>&gt;</span>TFO263</a>
+                        <a hred="javascript:;"><span>&gt;</span>TFO325</a>
+                        <a hred="javascript:;"><span>&gt;</span>TFI420</a>
+                    </div>
+                </li>
+                <li>
+                    <a href="javascript:;"><span>&gt;</span>无框架力矩电机</a>
+                    <div className="nav-box">
+                        <a hred="javascript:;"><span>&gt;</span>TB1142</a>
+                        <a hred="javascript:;"><span>&gt;</span>TBI170</a>
+                        <a hred="javascript:;"><span>&gt;</span>TBI175</a>
+                        <a hred="javascript:;"><span>&gt;</span>TBI200</a>
+                    </div>
+                </li>
+                <li>
+                    <a href="javascript:;"><span>&gt;</span>无铁芯直线电机</a>
+                    <div className="nav-box">
+                        <a hred="javascript:;"><span>&gt;</span>LMU2</a>
+                        <a hred="javascript:;"><span>&gt;</span>LMU3</a>
+                        <a hred="javascript:;"><span>&gt;</span>LMU4</a>
+                        <a hred="javascript:;"><span>&gt;</span>LMU5</a>
+                        <a hred="javascript:;"><span>&gt;</span>LMU6</a>
+                        <a hred="javascript:;"><span>&gt;</span>LMU7</a>
+                        <a hred="javascript:;"><span>&gt;</span>LMU8</a>
+                    </div>
+                </li>
+                <li>
+                    <a href="javascript:;"><span>&gt;</span>有铁芯直线电机</a>
+                    <div className="nav-box">
+                        <a hred="javascript:;"><span>&gt;</span>LMF1</a>
+                        <a hred="javascript:;"><span>&gt;</span>LMF2</a>
+                        <a hred="javascript:;"><span>&gt;</span>LMF3</a>
+                        <a hred="javascript:;"><span>&gt;</span>LMF4</a>
+                    </div>
+                </li>
+                <li>
+                    <a href="javascript:;"><span>&gt;</span>直线电机模组</a>
+                </li>
+                <li>
+                    <a href="javascript:;"><span>&gt;</span>对位平台</a>
+                </li>
+                <li>
+                    <a href="javascript:;"><span>&gt;</span>音圈电机</a>
+                </li>
+                <li>
+                    <a href="javascript:;"><span>&gt;</span>伺服驱动</a>
+                </li>
+            </ul>
+
+        </div>
     },
     {
         key: 3,
-        title: <FM id='download'/>,
-        content: <div>3</div>
+        title: <FM id='apply'/>,
+        content: false
     },
     {
         key: 4,
+        title: <FM id='customer'/>,
+        content: 
+        <div className="nav-div">
+        <ul className="nav-ul">
+            <li>
+                <a href="javascript:;"><span>&gt;</span>资料下载</a>
+            </li>
+            <li>
+                <a href="javascript:;"><span>&gt;</span>知识库</a>
+            </li>
+        </ul>
+
+    </div>
+    },
+    // {
+    //     key: 3,
+    //     title: <FM id='download'/>,
+    //     content: <div>3</div>
+    // },
+    {
+        key: 5,
         title: <FM id='contact us'/>,
-        content: <div>4</div>
+        content: false
     },
 ]
 
@@ -92,7 +189,7 @@ export default class Navbar extends Component {
         return (
             <div ref={node => this.navNode = node} className={`nav${navTop ? ' fixed' : ''}`}>
                 {
-                    navTop ? <div className="logo"></div> : null
+                    navTop ? <div className="logo"><span></span></div> : null
                 }
                 <ul className="navbar-nav">
                     {
@@ -121,7 +218,7 @@ export default class Navbar extends Component {
                     </li>
                 </ul>
                 {
-                    collapse ? <Collapse content={collapse} onMouseEnter={this.itemFocus.bind(this, collapse.key)} onMouseLeave={this.itemBlur}/> : null
+                    collapse && collapse.content ? <Collapse content={collapse} onMouseEnter={this.itemFocus.bind(this, collapse.key)} onMouseLeave={this.itemBlur}/> : null
                 }
             </div>
         )
@@ -133,7 +230,7 @@ class Collapse extends Component {
         let {content} = this.props;
         return (
             <div className={`collapse collapse-${content.key}`} onMouseEnter={this.props.onMouseEnter} onMouseLeave={this.props.onMouseLeave}>
-                {content.key}
+                {content.content}
             </div>
         )
     }

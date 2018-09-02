@@ -9,7 +9,9 @@ export default class Banner extends Component {
         
         return (
             <div className="header">
-                <div className="logo"></div>
+                <div className="logo">
+                    <span></span>
+                </div>
                 <Navbar />
                 {/* <div className="search">
                     <input placeholder={lang === 'zh' ? '输入您的搜索词汇' : 'Enter your search term'} />

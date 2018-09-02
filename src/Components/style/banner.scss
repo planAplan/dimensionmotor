@@ -6,9 +6,10 @@
     align-items: center;
     flex: 1;
     background-color: #fff;
+    z-index: 100;
     .logo {
-        flex: 1.5;
-        height: 100%;
+        flex: 1;
+        // height: 100%;
     }
     .shop {
         flex: 1;
