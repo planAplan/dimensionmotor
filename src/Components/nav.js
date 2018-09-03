@@ -35,46 +35,46 @@ const BANNER_ITEM = [
                 <li>
                     <a href="javascript:;"><span>&gt;</span>有框架力矩电机</a>
                     <div className="nav-box">
-                        <a hred="javascript:;"><span>&gt;</span>TFO080</a>
-                        <a hred="javascript:;"><span>&gt;</span>TFI112</a>
-                        <a hred="javascript:;"><span>&gt;</span>TFO140</a>
-                        <a hred="javascript:;"><span>&gt;</span>TFO170</a>
-                        <a hred="javascript:;"><span>&gt;</span>TFO220</a>
-                        <a hred="javascript:;"><span>&gt;</span>TFO224</a>
-                        <a hred="javascript:;"><span>&gt;</span>TFO260</a>
-                        <a hred="javascript:;"><span>&gt;</span>TFO263</a>
-                        <a hred="javascript:;"><span>&gt;</span>TFO325</a>
-                        <a hred="javascript:;"><span>&gt;</span>TFI420</a>
+                        <a hred="javascript:;">TFO080</a>
+                        <a hred="javascript:;">TFI112</a>
+                        <a hred="javascript:;">TFO140</a>
+                        <a hred="javascript:;">TFO170</a>
+                        <a hred="javascript:;">TFO220</a>
+                        <a hred="javascript:;">TFO224</a>
+                        <a hred="javascript:;">TFO260</a>
+                        <a hred="javascript:;">TFO263</a>
+                        <a hred="javascript:;">TFO325</a>
+                        <a hred="javascript:;">TFI420</a>
                     </div>
                 </li>
                 <li>
                     <a href="javascript:;"><span>&gt;</span>无框架力矩电机</a>
                     <div className="nav-box">
-                        <a hred="javascript:;"><span>&gt;</span>TB1142</a>
-                        <a hred="javascript:;"><span>&gt;</span>TBI170</a>
-                        <a hred="javascript:;"><span>&gt;</span>TBI175</a>
-                        <a hred="javascript:;"><span>&gt;</span>TBI200</a>
+                        <a hred="javascript:;">TB1142</a>
+                        <a hred="javascript:;">TBI170</a>
+                        <a hred="javascript:;">TBI175</a>
+                        <a hred="javascript:;">TBI200</a>
                     </div>
                 </li>
                 <li>
                     <a href="javascript:;"><span>&gt;</span>无铁芯直线电机</a>
                     <div className="nav-box">
-                        <a hred="javascript:;"><span>&gt;</span>LMU2</a>
-                        <a hred="javascript:;"><span>&gt;</span>LMU3</a>
-                        <a hred="javascript:;"><span>&gt;</span>LMU4</a>
-                        <a hred="javascript:;"><span>&gt;</span>LMU5</a>
-                        <a hred="javascript:;"><span>&gt;</span>LMU6</a>
-                        <a hred="javascript:;"><span>&gt;</span>LMU7</a>
-                        <a hred="javascript:;"><span>&gt;</span>LMU8</a>
+                        <a hred="javascript:;">LMU2</a>
+                        <a hred="javascript:;">LMU3</a>
+                        <a hred="javascript:;">LMU4</a>
+                        <a hred="javascript:;">LMU5</a>
+                        <a hred="javascript:;">LMU6</a>
+                        <a hred="javascript:;">LMU7</a>
+                        <a hred="javascript:;">LMU8</a>
                     </div>
                 </li>
                 <li>
                     <a href="javascript:;"><span>&gt;</span>有铁芯直线电机</a>
                     <div className="nav-box">
-                        <a hred="javascript:;"><span>&gt;</span>LMF1</a>
-                        <a hred="javascript:;"><span>&gt;</span>LMF2</a>
-                        <a hred="javascript:;"><span>&gt;</span>LMF3</a>
-                        <a hred="javascript:;"><span>&gt;</span>LMF4</a>
+                        <a hred="javascript:;">LMF1</a>
+                        <a hred="javascript:;">LMF2</a>
+                        <a hred="javascript:;">LMF3</a>
+                        <a hred="javascript:;">LMF4</a>
                     </div>
                 </li>
                 <li>
@@ -96,16 +96,30 @@ const BANNER_ITEM = [
     {
         key: 3,
         title: <FM id='apply'/>,
-        content: false
+        content: 
+        <div className="nav-div">
+            <ul className="nav-ul">
+                <li>
+                    <a href="javascript:;"><span>&gt;</span>直驱应用</a>
+                </li>
+                <li>
+                    <a href="javascript:;"><span>&gt;</span>行业新闻</a>
+                </li>
+            </ul>
+
+        </div>
     },
     {
         key: 4,
-        title: <FM id='customer'/>,
+        title: <FM id='technology'/>,
         content: 
         <div className="nav-div">
         <ul className="nav-ul">
             <li>
                 <a href="javascript:;"><span>&gt;</span>资料下载</a>
+            </li>
+            <li>
+                <a href="javascript:;"><span>&gt;</span>客户服务</a>
             </li>
             <li>
                 <a href="javascript:;"><span>&gt;</span>知识库</a>
@@ -123,6 +137,23 @@ const BANNER_ITEM = [
         key: 5,
         title: <FM id='contact us'/>,
         content: false
+        // <div className="nav-div">
+        //     <ul className="nav-ul">
+        //         <li>
+        //             <a href="javascript:;">咨询热线: 0755-23061319</a>
+        //         </li>
+        //         <li>
+        //             <a href="javascript:;">邮箱: info@dmotec.com</a>
+        //         </li>
+        //         <li>
+        //             <a href="javascript:;">地址:深圳市南山区西丽红花岭工业区八栋502</a>
+        //         </li>
+        //         <li>
+        //             <a href="javascript:;">Copyright &copy; 2018深圳市维度机电有限公司</a>
+        //         </li>
+        //     </ul>
+
+        // </div>
     },
 ]
 
@@ -140,9 +171,10 @@ export default class Navbar extends Component {
         this.offsetTop = 0;
     }
   
-    componentDidMount(){
-      if(this.navNode){
-        this.offsetTop = this.navNode.offsetTop;
+    componentDidMount () {
+      if (this.navNode) {
+        // this.offsetTop = this.navNode.offsetTop;
+        this.offsetTop = 50;
         window.addEventListener('scroll',this.handleScroll);
       }
     }
@@ -150,13 +182,13 @@ export default class Navbar extends Component {
     handleScroll = () => {
         let sTop = document.documentElement.scrollTop || window.pageYOffset || document.body.scrollTop;
     
-        if(!this.state.navTop && sTop >= this.offsetTop){
+        if (!this.state.navTop && sTop >= this.offsetTop) {
            this.setState({
              navTop: true
            })
         }
     
-        if(sTop < this.offsetTop){
+        if (sTop < this.offsetTop) {
            this.setState({
              navTop:false
            })

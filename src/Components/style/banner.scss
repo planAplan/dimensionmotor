@@ -1,12 +1,15 @@
 .header {
     width: 1200px;
-    height: 87px;
+    height: 145px;
     display: flex;
     justify-content: center;
     align-items: center;
     flex: 1;
     background-color: #fff;
     z-index: 100;
+    .logo, .nav {
+        height: 145px;
+    }
     .logo {
         flex: 1;
         // height: 100%;

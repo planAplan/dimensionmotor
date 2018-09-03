@@ -8,7 +8,8 @@ module.exports = {
     },
     output: {
         path: path.join(__dirname, './dist'),
-        filename: 'src/main-[hash].js'
+        filename: 'src/main.js'
+        // filename: 'src/main-[hash].js'
     },
     module: {
         rules: [{
