@@ -159,11 +159,14 @@
         justify-content: center;
         align-items: flex-end;
         flex-basis: 500px;
-        margin-right: 8%;
+        margin-right: 14%;
         position: relative;
         color: #3180f2;
         &.blackCol {
             color: #000
+        }
+        &.special {
+            margin-right: 4%;
         }
         .title {
             font-size: 48px;

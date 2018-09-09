@@ -16,7 +16,7 @@ export default class Content extends Component {
                 easing:"swing",
                 controlNav: true,
                 pauseOnHover:true,
-                slideshow: true
+                slideshow: false
             });
         }, 200)
     }
@@ -83,7 +83,7 @@ export default class Content extends Component {
                                 <img src={`${require('../images/carousel-5.jpg')}`} alt="" />
                                 <div class="slide">
                                     <div class="main">
-                                        <div class="caption blackCol">
+                                        <div class="caption blackCol special">
                                             <div className="title">SERVO DRIVER</div>
                                             <div className="describe">维度精密科技伺服驱动器采用创新型软硬件设计，集卓越的伺服性能、超高的功率密度、简便的调试作业和丰富的功能等多重优势于一身，极具成本效益。它采用全新的电流环路设计，频率响应可达到行业领先的 3-5 kHz。</div>
                                             <a href="javascript:;" className="more">
