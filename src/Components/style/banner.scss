@@ -7,6 +7,9 @@
     flex: 1;
     background-color: #fff;
     z-index: 100;
+    .nav {
+        flex-basis: 800px;
+    }
     .logo, .nav {
         height: 145px;
     }

@@ -4,28 +4,26 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Dimension Motions</title>
-    <meta name="viewport" content="width=device-width">
-    <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+    <!-- <meta name="viewport" content="width=device-width"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
-        html {
-            width: 100%;
-            height: 100%;
-        }
         body {
-            width: 100%;
-            height: 100%;
             margin: 0;
             padding: 0;
             overflow-y: auto;
         }
         #app {
-            width: 100%;
             margin: 0 auto;
-            height: 100%;
             display: flex;
             justify-content: center;
             align-items: flex-start;
             background-color: #fff;
+        }
+        @media screen and (max-width: 700px) {
+           #app{
+               float: left;
+               display: block;
+           }
         }
     </style>
 </head>

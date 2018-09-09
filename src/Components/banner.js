@@ -10,7 +10,9 @@ export default class Banner extends Component {
         return (
             <div className="header">
                 <div className="logo">
-                    <span></span>
+                    <a>
+                        <img src={require('../images/logo.png')}/>
+                    </a>
                 </div>
                 <Navbar />
                 {/* <div className="search">

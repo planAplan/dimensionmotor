@@ -15,6 +15,17 @@
         img {
             height: 620px;
         }
+        .flexslider {
+            .slides {
+                li {
+                    a {
+                        img {
+                            display: block;
+                        }
+                    }
+                }
+            }
+        }
     }
     .children {
         // width: 1200px;
