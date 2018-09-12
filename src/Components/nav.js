@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import { FormattedMessage as FM} from 'react-intl';
+import emitter from '../emitter';
 
 const BANNER_ITEM = [
     {
@@ -161,7 +162,6 @@ export default class Navbar extends Component {
 
     constructor(props){
         super(props);
-        
         this.state = {
           navTop: false,
           collapse: false,
@@ -194,7 +194,9 @@ export default class Navbar extends Component {
            })
         }
       }
-
+      itemClick = () => {
+        emitter.emit('wo', {a: '1', b: [1, 2, 3]})
+      }
     itemFocus = (e) => {
         this.setState({
             collapse: BANNER_ITEM[e]
@@ -227,7 +229,7 @@ export default class Navbar extends Component {
                     {
                         BANNER_ITEM.map((item, id) => {
                             return (
-                                <li key={id} className="nav-item" onMouseEnter={this.itemFocus.bind(this, id)} onMouseLeave={this.itemBlur} onClick={this.itemFocus}>{item.title}</li>
+                                <li key={id} className="nav-item" onMouseEnter={this.itemFocus.bind(this, id)} onMouseLeave={this.itemBlur} onClick={this.itemClick}>{item.title}</li>
                             )
                         })
                     }

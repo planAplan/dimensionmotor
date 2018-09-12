@@ -10,7 +10,9 @@
     "dev:mac": "npm run clean && npm run dev",
     "dev:win": "npm run clrwin & npm run dev",
     "clean": "rm -rf ./dist",
-    "clrwin": "rmdir /s/q dist"
+    "clrwin": "rmdir /s/q dist",
+    "final:mac": "npm run clean && ./node_modules/.bin/webpack --config webpack-dev-config.js --color --progress ",
+    "final:win": "npm run clrwin & ./node_modules/.bin/webpack --config webpack-dev-config.js --color --progress "
   },
   "devDependencies": {
     "babel-core": "^6.26.3",
@@ -31,6 +33,7 @@
     "webpack-dev-server": "^3.1.4"
   },
   "dependencies": {
+    "events": "^3.0.0",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
     "react-intl": "^2.4.0"
