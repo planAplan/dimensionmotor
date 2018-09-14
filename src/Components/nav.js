@@ -1,38 +1,25 @@
 import React, {Component} from 'react';
-import { FormattedMessage as FM} from 'react-intl';
 import emitter from '../emitter';
-
+import Lang from '../lib/Lang';
+import {EventDict, getLang} from './constant';
 const BANNER_ITEM = [
     {
         key: 0,
-        title: <FM id='home'/>,
+        title: Lang('home'),
         content: false
     },
     {
         key: 1,
-        title: <FM id='company'/>,
+        title: Lang('company'),
         content: {
             '公司简介': false,
             '企业文化': false,
             '加入维度': false,
         }
-        //  <div className="nav-div">
-        //     <ul className="nav-ul">
-        //         <li>
-        //             <a href="javascript:;"><span>&gt;</span>公司简介</a>
-        //         </li>
-        //         <li>
-        //             <a href="javascript:;"><span>&gt;</span>企业文化</a>
-        //         </li>
-        //         <li>
-        //             <a href="javascript:;"><span>&gt;</span>加入维度</a>
-        //         </li>
-        //     </ul>
-        // </div>
     },
     {
         key: 2,
-        title: <FM id='product'/>,
+        title: Lang('product'),
         class: 'float',
         content: {
             '有框架力矩电机': [
@@ -73,136 +60,28 @@ const BANNER_ITEM = [
             '音圈电机': false,
             '伺服驱动': false,
         }
-        // <div className="nav-div">
-        //     <ul className="nav-ul float">
-        //         <li>
-        //             <a href="javascript:;"><span>&gt;</span>有框架力矩电机</a>
-        //             <div className="nav-box">
-        //                 <a hred="javascript:;">TFO080</a>
-        //                 <a hred="javascript:;">TFI112</a>
-        //                 <a hred="javascript:;">TFO140</a>
-        //                 <a hred="javascript:;">TFO170</a>
-        //                 <a hred="javascript:;">TFO220</a>
-        //                 <a hred="javascript:;">TFO224</a>
-        //                 <a hred="javascript:;">TFO260</a>
-        //                 <a hred="javascript:;">TFO263</a>
-        //                 <a hred="javascript:;">TFO325</a>
-        //                 <a hred="javascript:;">TFI420</a>
-        //             </div>
-        //         </li>
-        //         <li>
-        //             <a href="javascript:;"><span>&gt;</span>无框架力矩电机</a>
-        //             <div className="nav-box">
-        //                 <a hred="javascript:;">TB1142</a>
-        //                 <a hred="javascript:;">TBI170</a>
-        //                 <a hred="javascript:;">TBI175</a>
-        //                 <a hred="javascript:;">TBI200</a>
-        //             </div>
-        //         </li>
-        //         <li>
-        //             <a href="javascript:;"><span>&gt;</span>无铁芯直线电机</a>
-        //             <div className="nav-box">
-        //                 <a hred="javascript:;">LMU2</a>
-        //                 <a hred="javascript:;">LMU3</a>
-        //                 <a hred="javascript:;">LMU4</a>
-        //                 <a hred="javascript:;">LMU5</a>
-        //                 <a hred="javascript:;">LMU6</a>
-        //                 <a hred="javascript:;">LMU7</a>
-        //                 <a hred="javascript:;">LMU8</a>
-        //             </div>
-        //         </li>
-        //         <li>
-        //             <a href="javascript:;"><span>&gt;</span>有铁芯直线电机</a>
-        //             <div className="nav-box">
-        //                 <a hred="javascript:;">LMF1</a>
-        //                 <a hred="javascript:;">LMF2</a>
-        //                 <a hred="javascript:;">LMF3</a>
-        //                 <a hred="javascript:;">LMF4</a>
-        //             </div>
-        //         </li>
-        //         <li>
-        //             <a href="javascript:;"><span>&gt;</span>直线电机模组</a>
-        //         </li>
-        //         <li>
-        //             <a href="javascript:;"><span>&gt;</span>对位平台</a>
-        //         </li>
-        //         <li>
-        //             <a href="javascript:;"><span>&gt;</span>音圈电机</a>
-        //         </li>
-        //         <li>
-        //             <a href="javascript:;"><span>&gt;</span>伺服驱动</a>
-        //         </li>
-        //     </ul>
-
-        // </div>
     },
     {
         key: 3,
-        title: <FM id='apply'/>,
+        title: Lang('apply'),
         content: {
             '直驱应用': false,
             '行业新闻': false,
         }
-        // <div className="nav-div">
-        //     <ul className="nav-ul">
-        //         <li>
-        //             <a href="javascript:;"><span>&gt;</span>直驱应用</a>
-        //         </li>
-        //         <li>
-        //             <a href="javascript:;"><span>&gt;</span>行业新闻</a>
-        //         </li>
-        //     </ul>
-
-        // </div>
     },
     {
         key: 4,
-        title: <FM id='technology'/>,
+        title: Lang('technology'),
         content: {
             '资料下载': false,
             '客户服务': false,
             '知识库': false,
         }
-        // <div className="nav-div">
-        //     <ul className="nav-ul">
-        //         <li>
-        //             <a href="javascript:;"><span>&gt;</span>资料下载</a>
-        //         </li>
-        //         <li>
-        //             <a href="javascript:;"><span>&gt;</span>客户服务</a>
-        //         </li>
-        //         <li>
-        //             <a href="javascript:;"><span>&gt;</span>知识库</a>
-        //         </li>
-        //     </ul>
-        // </div>
     },
-    // {
-    //     key: 3,
-    //     title: <FM id='download'/>,
-    //     content: <div>3</div>
-    // },
     {
         key: 5,
-        title: <FM id='contact us'/>,
+        title: Lang('contact us'),
         content: false
-        // <div className="nav-div">
-        //     <ul className="nav-ul">
-        //         <li>
-        //             <a href="javascript:;">咨询热线: 0755-23061319</a>
-        //         </li>
-        //         <li>
-        //             <a href="javascript:;">邮箱: info@dmotec.com</a>
-        //         </li>
-        //         <li>
-        //             <a href="javascript:;">地址:深圳市南山区西丽红花岭工业区八栋502</a>
-        //         </li>
-        //         <li>
-        //             <a href="javascript:;">Copyright &copy; 2018深圳市维度机电有限公司</a>
-        //         </li>
-        //     </ul>
-
-        // </div>
     },
 ]
 
@@ -213,7 +92,8 @@ export default class Navbar extends Component {
         this.state = {
           navTop: false,
           collapse: false,
-          searchPanel: false
+          searchPanel: false,
+          lang: getLang() || 'zh'
         }
   
         this.offsetTop = 0;
@@ -265,9 +145,15 @@ export default class Navbar extends Component {
             searchPanel: false
         })
     }
+    changeLanguage = (lang) => {
+        emitter.emit(EventDict.CHANGE_LANG, lang)
+        this.setState({
+            lang: lang === 'zh' ? 'en' : 'zh'
+        })
+    }
     render () {
         let {navTop, collapse, searchPanel} = this.state;
-        let lang = window.languageWithoutRegionCode || 'en'
+        let lang = this.state.lang
         return (
             <div ref={node => this.navNode = node} className={`nav${navTop ? ' fixed' : ''}`}>
                 {
@@ -281,13 +167,12 @@ export default class Navbar extends Component {
                             )
                         })
                     }
-                    <li><div className="language">{lang === 'zh' ? 'ZH' : 'EN'}</div></li>
+                    <li onClick={this.changeLanguage.bind(this, lang)}><div className="language">{lang === 'zh' ? 'ZH' : 'EN'}</div></li>
                     <li>
                         <i class="icon-search" onMouseEnter={this.handleSearch} onMouseLeave={this.handleSearchBlur}></i>
                         {
                             searchPanel ?
                             <ul className="search" onMouseEnter={this.handleSearch} onMouseLeave={this.handleSearchBlur}>
-                                {/* <li><FM id="search"/></li> */}
                                 <li>
                                     <input placeholder={lang === 'zh' ? '输入您的搜索词汇' : 'Enter your search term'} />
                                     <button type="submit">

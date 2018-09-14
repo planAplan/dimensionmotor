@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import { FormattedMessage as FM} from 'react-intl';
 
 export default class Footer extends Component {
     render () {
