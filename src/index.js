@@ -2,7 +2,9 @@ import React, {Component} from 'react';
 import ReactDom from 'react-dom';
 
 import App from './components/app';
-import {getLang, setLang} from './components/constant'
+import {EventDict, getLang, setLang} from './components/constant'
+import emitter from './emitter';
+
 
 
 require('./asset/jquery-1.7.2.min.js');
@@ -15,9 +17,20 @@ class HomeView extends Component {
     super(props);
   }
   componentWillMount () {
-    let lang = getLang();
+    let lang = getLang() || 'zh';
     setLang(lang)
   }
+  componentDidMount () {
+    emitter.addListener(EventDict.CHANGE_LANG, (lang) => {
+        setLang(lang)
+        window.location.href = window.location.href
+    })
+  }
+  handleEvent = (e) => {
+  }
+  componentWillUnmount () {
+    emitter.removeAllListeners()
+  } 
   render() {
       return (
         <App />

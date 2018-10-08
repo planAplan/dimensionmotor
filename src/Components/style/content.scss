@@ -159,11 +159,11 @@
 .flexslider:hover .flex-next:hover, .flexslider:hover .flex-prev:hover{opacity:.8;filter:alpha(opacity=50);}
 
 .flex-control-nav{ display:none;}
-.slide{position:absolute;left:0;top:0;width: 100%;height:500px;}
-.slide .main{height:100%;position:absolute;left:50%;margin-left:-600px;top:0;overflow:auto;}
+.slide{position:absolute;left:0;top:0;width: 100%;height:100%;}
 .main {
     display: flex;
     justify-content: flex-end;
+    height: 100%;
     .caption {
         display: flex;
         flex-direction: column;
@@ -177,7 +177,7 @@
             color: #000
         }
         &.special {
-            margin-right: 4%;
+            // margin-right: 4%;
         }
         .title {
             font-size: 48px;
@@ -195,7 +195,7 @@
             border: 1px solid #000;
             padding: 5px 0;
             position: absolute;
-            bottom: 10px;
+            bottom: 10%;
             left: 30%;
             color: #000;
             font-size: 16px;

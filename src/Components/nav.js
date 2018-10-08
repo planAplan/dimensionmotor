@@ -1,90 +1,8 @@
 import React, {Component} from 'react';
 import emitter from '../emitter';
 import Lang from '../lib/Lang';
-import {EventDict, getLang} from './constant';
-const BANNER_ITEM = [
-    {
-        key: 0,
-        title: Lang('home'),
-        content: false
-    },
-    {
-        key: 1,
-        title: Lang('company'),
-        content: {
-            '公司简介': false,
-            '企业文化': false,
-            '加入维度': false,
-        }
-    },
-    {
-        key: 2,
-        title: Lang('product'),
-        class: 'float',
-        content: {
-            '有框架力矩电机': [
-                'TFO080',
-                'TFI112',
-                'TFO140',
-                'TFO170',
-                'TFO220',
-                'TFO224',
-                'TFO260',
-                'TFO263',
-                'TFO325',
-                'TFI420',
-            ],
-            '无框架力矩电机': [
-                'TB1142',
-                'TBI170',
-                'TBI175',
-                'TBI200',
-            ],
-            '无铁芯直线电机': [
-                'LMU2',
-                'LMU3',
-                'LMU4',
-                'LMU5',
-                'LMU6',
-                'LMU7',
-                'LMU8',
-            ],
-            '有铁芯直线电机': [
-                'LMF1',
-                'LMF2',
-                'LMF3',
-                'LMF4',
-            ],
-            '直线电机模组': false,
-            '对位平台': false,
-            '音圈电机': false,
-            '伺服驱动': false,
-        }
-    },
-    {
-        key: 3,
-        title: Lang('apply'),
-        content: {
-            '直驱应用': false,
-            '行业新闻': false,
-        }
-    },
-    {
-        key: 4,
-        title: Lang('technology'),
-        content: {
-            '资料下载': false,
-            '客户服务': false,
-            '知识库': false,
-        }
-    },
-    {
-        key: 5,
-        title: Lang('contact us'),
-        content: false
-    },
-]
-
+import {EventDict, getLang, BANNER_ITEM} from './constant';
+import {transStrToHump, stopBubble, stopDefault} from '../lib/wheel';
 export default class Navbar extends Component {
 
     constructor(props){
@@ -122,8 +40,11 @@ export default class Navbar extends Component {
            })
         }
       }
-    itemClick = () => {
-        // emitter.emit('wo', {a: '1', b: [1, 2, 3]})
+    itemClick = (e) => {
+        emitter.emit(EventDict.NAV_ITEM_CLICK, {
+            target: 'nav',
+            name: transStrToHump(e.target.dataset.name)
+        })
     }
     itemFocus = (e) => {
         this.setState({
@@ -145,10 +66,12 @@ export default class Navbar extends Component {
             searchPanel: false
         })
     }
-    changeLanguage = (lang) => {
+    changeLanguage = () => {
+        let {lang} = this.state
+        lang = lang === 'zh' ? 'en' : 'zh'
         emitter.emit(EventDict.CHANGE_LANG, lang)
         this.setState({
-            lang: lang === 'zh' ? 'en' : 'zh'
+            lang: lang
         })
     }
     render () {
@@ -163,18 +86,18 @@ export default class Navbar extends Component {
                     {
                         BANNER_ITEM.map((item, id) => {
                             return (
-                                <li key={id} className="nav-item" onMouseEnter={this.itemFocus.bind(this, id)} onMouseLeave={this.itemBlur} onClick={this.itemClick}>{item.title}</li>
+                                <li key={id} className="nav-item" data-name={item.title} onMouseEnter={this.itemFocus.bind(this, id)} onMouseLeave={this.itemBlur} onClick={this.itemClick}>{Lang(item.title)}</li>
                             )
                         })
                     }
-                    <li onClick={this.changeLanguage.bind(this, lang)}><div className="language">{lang === 'zh' ? 'ZH' : 'EN'}</div></li>
+                    <li onClick={this.changeLanguage}><div className="language">{lang === 'zh' ? 'EN' : '中文'}</div></li>
                     <li>
                         <i class="icon-search" onMouseEnter={this.handleSearch} onMouseLeave={this.handleSearchBlur}></i>
                         {
                             searchPanel ?
                             <ul className="search" onMouseEnter={this.handleSearch} onMouseLeave={this.handleSearchBlur}>
                                 <li>
-                                    <input placeholder={lang === 'zh' ? '输入您的搜索词汇' : 'Enter your search term'} />
+                                    <input placeholder={Lang('searchHold')} />
                                     <button type="submit">
                                         <i class="icon-search"></i>
                                     </button>
@@ -196,22 +119,25 @@ class Collapse extends Component {
         
     renderSub = (s) => {
         let c = []
-        s.forEach((i) => {
+        for (let i in s) {
             c.push(
-                <a key={i} hred="javascript:;" data-name={i} onClick={this.subClick}>{i}</a>
+                <a key={i} hred="javascript:;"onClick={this.subClick.bind(this, event, i, s[i])}>{Lang(i)}</a>
             )
-        })
+        }
         return (
             <div className="nav-box">
                 {c}
             </div>
         )
     }
-    subClick = (e) => {
+    subClick = (e, i, s) => {
         stopBubble(e);
-        stopDefault(e)
-        // console.log(e.target.dataset.name);
-        emitter.emit('wo', {a: '1', b: [1, 2, 3], 'aa': 1})
+        stopDefault(e);
+        emitter.emit(EventDict.SPECIES_SUB_CLICK, {
+            target: 'third',
+            name: i,
+            img: s.img
+        })
     }
     renderContent = (content) => {
         let cnt = content.content
@@ -220,14 +146,14 @@ class Collapse extends Component {
         for (let i in cnt) {
             if (!cnt[i]) {
                 c.push(
-                    <li key={i} data-name={i}>
-                        <a href="javascript:;" data-name={i}><span data-name={i}>&gt;</span> {i}</a>
+                    <li key={i}>
+                        <a href="javascript:;" onClick={this.speciesClick.bind(this, event, i)}><span>&gt;</span> {Lang(i)}</a>
                     </li>
                 )
             } else {
                 c.push(
-                    <li key={i} data-name={i}>
-                        <a href="javascript:;" data-name={i}><span data-name={i}>&gt;</span> {i}</a>
+                    <li key={i}>
+                        <a href="javascript:;" onClick={this.speciesClick.bind(this, event, i)}><span>&gt;</span> {Lang(i)}</a>
                         {this.renderSub(cnt[i])}
                     </li>
                 )
@@ -235,22 +161,23 @@ class Collapse extends Component {
         }
         return (
             <div className="nav-div">
-                <ul className={`nav-ul ${cls}`}  onClick={this.speciesClick.bind(this)}>
+                <ul className={`nav-ul ${cls}`}>
                     {c}
                 </ul>
             </div>
         )
     }
-    speciesClick = (e) => {
+    speciesClick = (e, name) => {
         stopBubble(e)
-        // console.log(e.target.dataset.name);
-        emitter.emit('wo', {a: '1', b: [1, 2, 3], 'li': 2})
+        emitter.emit(EventDict.SPECIES_CLICK, {
+            target: 'second',
+            name: name
+        })
     }
     render () {
         let {content} = this.props;
         return (
             <div className={`collapse collapse-${content.key}`} onMouseEnter={this.props.onMouseEnter} onMouseLeave={this.props.onMouseLeave}>
-                {/* {content.content} */}
                 {this.renderContent(content)}
             </div>
         )
@@ -259,25 +186,5 @@ class Collapse extends Component {
 
 
 
-// 1、禁止事件冒泡
-function stopBubble(e) { 
-//如果提供了事件对象，则这是一个非IE浏览器 
-if ( e && e.stopPropagation ) 
-    //因此它支持W3C的stopPropagation()方法 
-    e.stopPropagation(); 
-else
-    //否则，我们需要使用IE的方式来取消事件冒泡 
-    window.event.cancelBubble = true; 
-}
-    
-// 2、禁止默认事件
-//阻止浏览器的默认行为 
-function stopDefault( e ) { 
-    //阻止默认浏览器动作(W3C) 
-    if ( e && e.preventDefault ) 
-        e.preventDefault(); 
-    //IE中阻止函数器默认动作的方式 
-    else
-        window.event.returnValue = false; 
-    return false; 
-}
+
+

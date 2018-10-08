@@ -1,9 +1,11 @@
 .footer {
     width: 100%;
-    background-color: #fff;
-    color: #49545e;
+    background-color: #282e34;
+    color: rgba(255,255,255,.8);
+    // background-color: #fff;
+    // color: #49545e;
     padding: 3rem 0 2.53333rem;
-    margin-top: 6px;
+    // margin-top: 6px;
     box-sizing: border-box;
     display: flex;
     justify-content: center;
@@ -13,6 +15,7 @@
         display: flex;
         justify-content: center;
         align-content: center;
+        flex-basis: 1200px;
         .footer_menu {
             flex: 1;
             display: flex;
@@ -23,6 +26,7 @@
                     font-size: 13px;
                     font-weight: 600;
                     margin-bottom: 10px;
+                    cursor: pointer;
                 }
                 dd {
                     margin-bottom: 10px;
@@ -33,9 +37,18 @@
                     outline: none;
                 }
                 &.flex {
-                    flex: 1.3;
-                    dl {
-                        float: left
+                    flex: 1.2;
+                    position: relative;
+                    dd {
+                        // float: left;
+                        &:nth-of-type(n + 5) {
+                            position: absolute;
+                            left: 115px;
+                        }
+                        &:nth-of-type(5){top: 28px}
+                        &:nth-of-type(6){top: 58px}
+                        &:nth-of-type(7){top: 88px}
+                        &:nth-of-type(8){top: 118px;}
                     }
                 }
                 &:last-child {

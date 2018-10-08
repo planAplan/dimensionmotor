@@ -1,5 +1,5 @@
 import langDict from '../components/lang';
-const Lang = langDict((lang) => {
+const Lang = langDict(lang => {
     return require('../components/lang/' + lang)
 })
 

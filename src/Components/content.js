@@ -6,7 +6,6 @@ export default class Content extends Component {
         focus: false
     }
     handleMouseEnter = (e) => {
-        console.log(e.target)
     }
     componentDidMount () {
         setTimeout(() => {
@@ -25,11 +24,11 @@ export default class Content extends Component {
             <div className="content-wrap">
                 <div id="banner" className="content flexslider">
                     <ul class="slides">
-                        <li>
+                        {/* <li>
                             <a href="javascript:;">
                                 <img src={`${require('../images/carousel-1.jpg')}`} alt="" />
                             </a>
-                        </li>
+                        </li> */}
                         <li>
                             <a href="javascript:;">
                                 <img src={`${require('../images/carousel-2.jpg')}`} alt="" />
@@ -37,7 +36,7 @@ export default class Content extends Component {
                                     <div class="main">
                                         <div class="caption">
                                             <div className="title">TORQUE MOTOR</div>
-                                            <div className="describe">力矩电机又称DD马达，具有业内领先的性能，零维护需求，更简单的机械装备，更高的精度更强的扭矩输出能力，更高的可靠性，更小的工作噪音，可以满足多种机械设计需求。DMO力矩电机优化了负载加速度，降低功耗，降低系统惯性，提升精度，这些都是直驱伺服系统解决方案所能带来的主要优势。</div>
+                                            <div className="describe">力矩电机又称DD马达，具有业内领先的性能，零维护需求，更简单的机械装备，更高的精度更强的扭矩输出能力，更高的可靠性，更小的工作噪音，可以满足多种机械设计需求。</div>
                                             <a href="javascript:;" className="more">
                                                 {Lang('more')}
                                             </a>

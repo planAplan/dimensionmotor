@@ -1,58 +1,72 @@
 import React, {Component} from 'react';
 
+import {BANNER_ITEM} from './constant';
+import Lang from '../lib/Lang';
+import emitter from '../emitter';
+import {EventDict} from './constant';
+import {transStrToHump} from '../lib/wheel';
+
 export default class Footer extends Component {
+    itemClick = (e) => {
+        emitter.emit(EventDict.NAV_ITEM_CLICK, {
+            target: 'footer-nav',
+            name: transStrToHump(e.target.dataset.name)
+        })
+    }
+    handleProduct = (e) => {
+        emitter.emit(EventDict.SPECIES_CLICK, {
+            target: 'footer-product',
+            name: e.target.dataset.name
+        })
+    }
+    renderContent = () => {
+        let getSubCnt = (content) => {
+            if (content) {
+                let l = []
+                for (let i in content) {
+                    l.push(
+                        <dd data-name={i} onClick={this.handleProduct} key={i}><a data-name={i} href="javascript:;">{Lang(i)}</a></dd>
+                    )
+                }
+                return l
+            } else {
+                return <dd />
+            }
+        }
+
+        let getContent = (list) => {
+            let l = []
+            list.forEach((i, d) => {
+                let cls = ''
+                if (i.title === 'product') cls = 'flex'
+                if (i.title !== 'home') {
+                    l.push (
+                        <dl className={cls} key={d}>
+                            <dt data-name={i.title} onClick={this.itemClick}>{Lang(i.title)}</dt>
+                            {i.title !== 'contactUs' ? getSubCnt(i.content) : i.footer}
+                        </dl>
+                    )
+                }
+
+            })
+            return l
+        }
+        return (
+            <div className="footer_menu">
+                {getContent(BANNER_ITEM)}
+            </div>
+        )
+    }
+    componentWillMount () {
+        this.setState({
+            content: this.renderContent()
+        })
+    }
     render () {
         return (
             <div class="footer">
                 <div className="footer_content">
-                    <div class="footer_Ldeil">
-                        <div className="attention">
-                        </div>
-                        <div className="summary">
-                        </div>
-                        <div><a href="javascript:;" className="support"></a></div>
-                    </div>
-                    <div className="footer_menu">
-                        <dl>
-                            <dt>关于我们</dt>
-                            <dd><a href="javascript:;">公司简介</a></dd>
-                            <dd><a href="javascript:;">企业文化</a></dd>
-                            <dd><a href="javascript:;">加入维度</a></dd>
-                        </dl>
-                        <dl className="flex">
-                            <dt>产品中心</dt>
-                            <dl>
-                                <dd><a href="javascript:;">有框架力矩电机</a></dd>
-                                <dd><a href="javascript:;">无框架力矩电机</a></dd>
-                                <dd><a href="javascript:;">无铁芯直线电机</a></dd>
-                                <dd><a href="javascript:;">有铁芯直线电机</a></dd>
-                                <dd><a href="javascript:;">直线电机模组</a></dd>
-                            </dl>
-                            <dl>
-                                <dd><a href="javascript:;">对位平台</a></dd>
-                                <dd><a href="javascript:;">音圈电机</a></dd>
-                                <dd><a href="javascript:;">伺服驱动</a></dd>
-                            </dl>
-                        </dl>
-                        <dl>
-                            <dt>应用中心</dt>
-                            <dd><a href="javascript:;">直驱应用</a></dd>
-                            <dd><a href="javascript:;">行业新闻</a></dd>
-                        </dl>
-                        <dl>
-                            <dt>技术中心</dt>
-                            <dd><a href="javascript:;">资料下载</a></dd>
-                            <dd><a href="javascript:;">客户服务</a></dd>
-                            <dd><a href="javascript:;">知识库</a></dd>
-                        </dl>
-                        <dl>
-                            <dt>联系我们</dt>
-                            <dd><a href="javascript:;">咨询热线: 0755-23061319</a></dd>
-                            <dd><a href="javascript:;">邮箱: info@dmotec.com</a></dd>
-                            <dd><a href="javascript:;">地址:深圳市南山区西丽红花岭工业区八栋502</a></dd>
-                            <dd><a href="javascript:;">Copyright &copy; 2018深圳市维度机电有限公司</a></dd>
-                        </dl>
-                    </div>
+                    {this.state.content || ''}
                 </div>
             </div>
         )

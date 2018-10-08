@@ -6,8 +6,17 @@ export default {
     'technology': 'Technology Center',
     'customer': 'Customer Service',
     // 'download': 'Download',
-    'contact us': 'Contact Us',
+    'contactUs': 'Contact Us',
     'search': 'SEARCH',
-    'more': 'More'
-    // 'searchHold': 'Enter your search term',
+    'more': 'More',
+    'searchHold': 'Enter your search term',
+
+    'haveFrame': '有框架力矩电机',
+    'notFrame': '无框架力矩电机',
+    'notIronCore': '无铁芯直线电机',
+    'haveIronCore': '有铁芯直线电机',
+    'dieSet': '直线电机模组',
+    'platform': '对位平台',
+    'voiceCoilMotor': '音圈电机',
+    'servoDrive': '伺服驱动',
 }
