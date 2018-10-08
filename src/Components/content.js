@@ -96,6 +96,13 @@ export default class Content extends Component {
                     </ul>
                 </div>
                 <div className="children">
+                    <div className="child-2">
+                        <div className="child-2-1">
+                            <span className="text-1">ABOUT DMO</span>
+                            <span className="text-2">关于维度精密科技</span>
+                            <span className="text-3">Dimension Motions ( DMO ) 维度精密科技主要研发直驱动力技术，致力于为人工智能自动化等复杂运动机制的设备，提供精确的速度、 准度和位置控制和应用装置。</span>
+                        </div>
+                    </div>
                     <div className="child-1">
                         <div className="child-1-1">
                             <span>核心技术</span>
@@ -104,13 +111,6 @@ export default class Content extends Component {
                         <div className="child-1-2">
                             <span>应用方案</span>
                             <span>MOTION SOLUTIONS</span>
-                        </div>
-                    </div>
-                    <div className="child-2">
-                        <div className="child-2-1">
-                            <span className="text-1">ABOUT DMO</span>
-                            <span className="text-2">关于维度精密科技</span>
-                            <span className="text-3">Dimension Motions ( DMO ) 维度精密科技主要研发直驱动力技术，致力于为人工智能自动化等复杂运动机制的设备，提供精确的速度、 准度和位置控制和应用装置。</span>
                         </div>
                     </div>
                 </div>
