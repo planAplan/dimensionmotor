@@ -122,7 +122,8 @@ const BANNER_ITEM = [
             <dd key="1"><a href="javascript:;">咨询热线: 0755-23061319</a></dd>,
             <dd key="2"><a href="mailto:info@dmotec.com?subject=致：深圳维度机电有限公司&body=深圳维度机电有限公司欢迎您！（发送正文时，可删除本行，非常感谢！）">邮箱: info@dmotec.com</a></dd>,
             <dd key="3"><a href="javascript:;">地址:深圳市南山区西丽红花岭工业区八栋502</a></dd>,
-            <dd key="4"><a href="javascript:;">Copyright &copy; 2018深圳市维度机电有限公司</a></dd>
+            <dd key="4"><a href="javascript:;">Copyright &copy; 2018深圳市维度机电有限公司</a></dd>,
+            <dd key="5"><a href="javascript:;">粤ICP备18122872号</a></dd>
         ]
     },
 ]

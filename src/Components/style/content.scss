@@ -54,27 +54,6 @@
                 &-1 {
                     flex: 1;
                     background: #5294f4;
-                    transition: all .4s linear;
-                    position: relative;
-                    &:hover {
-                        flex: 2;
-                        // background-color: transparent;
-                        background: rgba(82, 148, 244, .5) url('../images/section-1.png') no-repeat center;
-                        background-size: 100% 100%;
-                        >span {
-                            z-index: 100;
-                        }
-                        &:before {
-                            content: '';
-                            position: absolute;
-                            top:0;left:0;right:0;bottom:0;
-                            background-color:rgba(82, 148, 244, .5)
-                        }
-                    }
-                }
-                &-2 {
-                    flex: 1;
-                    background: #79acf7;
                     margin-left: 1px;
                     box-sizing: border-box;
                     transition: all .4s linear;
@@ -101,7 +80,34 @@
                 background: #90baf8;
                 display: flex;
                 margin-left: 1px;
+                >div {
+                    display: flex;
+                    justify-content: center;
+                    align-content: center;
+                    flex-direction: column;
+                }
                 &-1 {
+                    flex: 1;
+                    background: #79acf7;
+                    transition: all .4s linear;
+                    position: relative;
+                    &:hover {
+                        flex: 2;
+                        // background-color: transparent;
+                        background: rgba(82, 148, 244, .5) url('../images/section-1.png') no-repeat center;
+                        background-size: 100% 100%;
+                        >span {
+                            z-index: 100;
+                        }
+                        &:before {
+                            content: '';
+                            position: absolute;
+                            top:0;left:0;right:0;bottom:0;
+                            background-color:rgba(82, 148, 244, .5)
+                        }
+                    }
+                }
+                &-2 {
                     flex: 1;
                     background: #90baf8;
                     display: flex;
