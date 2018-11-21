@@ -15,7 +15,7 @@ export default class Content extends Component {
                 easing:"swing",
                 controlNav: true,
                 pauseOnHover:true,
-                slideshow: true
+                slideshow: false
             });
         }, 200)
     }
